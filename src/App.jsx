@@ -2,7 +2,7 @@ import './App.css'
 
 function ListElements({title, elements}){
 
-  function escribirElemento ( element ) {
+  function EscribirElemento ( element ) {
       return (
           <tr className={element.stock === true ? "negrita" : "element"}>
            <td> <b>{element.name}</b> </td>
@@ -15,7 +15,11 @@ function ListElements({title, elements}){
     <>
       <h2 className="subtitle"> {title} </h2>
       <tr>
-        {elements.map(escribirElemento)}
+        {elements.map( (element) => {
+          return (
+          <div> {element.name} </div>
+          )
+        })}
       </tr>
     </>
   )
@@ -30,13 +34,22 @@ const frutas = [
   },
   {
     name: 'naranja',
-    price: '$6'
+    price: '$6',
+    stock: false
   },
   {
     name: 'banana',
-    price: '$8'
-  }
+    price: '$8',
+    stock: false
+  },
 ]
+
+frutas.push({
+  name: 'naranjo',
+  price: '$24',
+  stock: true
+})
+
 
 const verduras = [
   {
